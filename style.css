@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+i,
+svg {
+    pointer-events: none;
+}
+
+.sequencer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.kick-pad,
+.snare-pad,
+.hihat-pad {
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+}
+
+.kick-pad {
+    background: rgb(160, 211, 224);
+}
+
+.snare-pad {
+    background: rgb(224, 160, 208);
+}
+
+.hihat-pad {
+    background: rgb(224, 194, 160);
+}
+
+.kick-pad.active {
+    background: rgb(59, 197, 231);
+}
+
+.snare-pad.active {
+    background: rgb(218, 58, 178);
+}
+
+.hihat-pad.active {
+    background: rgb(241, 158, 64);
+}
+
+.kick-track,
+.snare-track,
+.hihat-track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin-top: 5rem;
+}
+
+.kick,
+.snare,
+.hihat {
+    display: flex;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    margin: 0rem 2rem;
+}
+
+.controls button {
+    padding: 1rem;
+    border: none;
+    background: rgb(88, 88, 88);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+.pad {
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+.play {
+    padding: 1rem 2rem;
+    border: none;
+    background: rgb(88, 88, 88);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 3rem;
+}
+
+select {
+    padding: 1rem;
+    font-size: 1rem;
+    margin-left: 1rem;
+    min-width: 0.5rem;
+    width: 20%
+}
+
+.mute.active {
+    background: rgb(182, 182, 182);
+}
+
+@keyframes playTrack {
+    from {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+    }
+}
