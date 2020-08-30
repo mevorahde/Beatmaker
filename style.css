@@ -21,9 +21,18 @@ svg {
     justify-content: center;
 }
 
+h1 {
+    margin-right: 3rem;
+    align-items: center;
+}
+
+
 .kick-pad,
 .snare-pad,
-.hihat-pad {
+.hihat-pad,
+.openhat-pad,
+.clap-pad {
+    flex-direction: column;
     width: 5rem;
     height: 5rem;
     margin: 1rem 0.5rem;
@@ -42,6 +51,14 @@ svg {
     background: rgb(224, 194, 160);
 }
 
+.openhat-pad {
+    background: rgb(187, 99, 99);
+}
+
+.clap-pad {
+    background: rgb(54, 153, 112);
+}
+
 .kick-pad.active {
     background: rgb(59, 197, 231);
 }
@@ -54,26 +71,39 @@ svg {
     background: rgb(241, 158, 64);
 }
 
+.openhat-pad.active {
+    background: rgb(192, 38, 38);
+}
+
+.clap-pad.active {
+    background: rgb(7, 95, 59);
+}
+
 .kick-track,
 .snare-track,
-.hihat-track {
+.hihat-track,
+.openhat-track,
+.clap-track {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 70%;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
     margin-top: 5rem;
 }
 
 .kick,
 .snare,
-.hihat {
+.hihat,
+.openhat,
+.clap {
     display: flex;
 }
 
 .controls {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex: 1;
     margin: 0rem 2rem;
 }
@@ -113,13 +143,38 @@ svg {
 select {
     padding: 1rem;
     font-size: 1rem;
-    margin-left: 1rem;
-    min-width: 0.5rem;
-    width: 20%
+    margin-left: 2rem;
+    min-width: 2rem;
 }
 
 .mute.active {
     background: rgb(182, 182, 182);
+}
+
+.tempo {
+    margin: 3rem;
+    width: 30%;
+}
+
+.tempo-slider {
+    padding: 0.2rem;
+    -webkit-appearance: none;
+    margin: 1rem, 0rem;
+    width: 100%;
+    position: relative;
+    background: rgb(88, 88, 88);
+    cursor: pointer;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.tempo p {
+    font-size: 1.5rem;
+    margin: 2rem;
+    text-align: center;
 }
 
 @keyframes playTrack {

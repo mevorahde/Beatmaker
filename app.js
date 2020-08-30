@@ -5,14 +5,19 @@ class Drumkit {
     this.currentKick = "./sound/kick-classic.wav";
     this.currentSnare = "./sound/snare-acoustic01.wav";
     this.currentHihat = "./sound/hihat-acoustic01.wav";
+    this.currentOpenhat = "./sounds/openhat-acoustic01.wav";
+    this.currentClap = "./sounds/clap-808.wav";
     this.kickAduio = document.querySelector(".kick-sound");
     this.snareAduio = document.querySelector(".snare-sound");
     this.hihatAduio = document.querySelector(".hihat-sound");
+    this.openhatAduio = document.querySelector(".openhat-sound");
+    this.clapAduio = document.querySelector(".clap-sound");
     this.index = 0;
     this.bmp = 150;
     this.isPlaying = null;
     this.selects = document.querySelectorAll("select");
     this.muteBtns = document.querySelectorAll(".mute");
+    this.tempoSlider = document.querySelector(".tempo-slider");
   }
 
   activePad() {
@@ -39,6 +44,14 @@ class Drumkit {
         if (bar.classList.contains("hihat-pad")) {
           this.hihatAduio.currentTime = 0;
           this.hihatAduio.play();
+        }
+        if (bar.classList.contains("clap-pad")) {
+          this.clapAduio.currentTime = 0;
+          this.clapAduio.play();
+        }
+        if (bar.classList.contains("openhat-pad")) {
+          this.openhatAduio.currentTime = 0;
+          this.openhatAduio.play();
         }
       }
     });
@@ -81,6 +94,12 @@ class Drumkit {
       case "hihat-select":
         this.hihatAduio.src = selectionValue;
         break;
+      case "openhat-select":
+        this.openhatAduio.src = selectionValue;
+        break;
+      case "clap-select":
+        this.clapAduio.src = selectionValue;
+        break;
     }
   }
   mute(e) {
@@ -97,6 +116,12 @@ class Drumkit {
         case "2":
           this.hihatAduio.volume = 0;
           break;
+        case "3":
+          this.openhatAduio.volume = 0;
+          break;
+        case "4":
+          this.clapAduio.volume = 0;
+          break;
       }
     } else {
       switch (muteIndex) {
@@ -109,7 +134,26 @@ class Drumkit {
         case "2":
           this.hihatAduio.volume = 1;
           break;
+        case "3":
+          this.openhatAduio.volume = 1;
+          break;
+        case "4":
+          this.clapAduio.volume = 1;
+          break;
       }
+    }
+  }
+  changeTempo(e) {
+    const tempoText = document.querySelector(".tempo-nr");
+    this.bmp = e.target.value;
+    tempoText.innerText = e.target.value;
+  }
+  updateTempo() {
+    clearInterval(this.isPlaying);
+    this.isPlaying = null;
+    const playBtn = document.querySelector(".play");
+    if (playBtn.classList.contains("active")) {
+      this.start();
     }
   }
 }
@@ -142,4 +186,12 @@ drumKit.muteBtns.forEach((btn) => {
   btn.addEventListener("click", function (e) {
     drumKit.mute(e);
   });
+});
+
+drumKit.tempoSlider.addEventListener("input", function (e) {
+  drumKit.changeTempo(e);
+});
+
+drumKit.tempoSlider.addEventListener("change", function (e) {
+  drumKit.updateTempo(e);
 });

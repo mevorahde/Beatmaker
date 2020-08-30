@@ -82,12 +82,77 @@
           <div class="pad hihat-pad b7"></div>
         </div>
       </div>
+      <div class="openhat-track">
+        <div class="controls">
+          <h1>Openhat</h1>
+          <button data-track="3" class="mute openhat-volume">
+            <i class="fas fa-volume-mute"></i>
+          </button>
+          <select name="openhat-select" id="openhat-select">
+            <option value="./sounds/openhat-acoustic01.wav">
+              Openhat Acoustic
+            </option>
+            <option value="./sounds/openhat-808.wav">808 Openhat</option>
+            <option value="./sounds/openhat-analog.wav">Openhat Analog</option>
+            <option value="./sounds/openhat-slick.wav">Openhat Slick</option>
+            <option value="./sounds/openhat-tight.wav">Openhat Tight</option>
+          </select>
+        </div>
+        <div class="openhat">
+          <div class="pad openhat-pad b0"></div>
+          <div class="pad openhat-pad b1"></div>
+          <div class="pad openhat-pad b2"></div>
+          <div class="pad openhat-pad b3"></div>
+          <div class="pad openhat-pad b4"></div>
+          <div class="pad openhat-pad b5"></div>
+          <div class="pad openhat-pad b6"></div>
+          <div class="pad openhat-pad b7"></div>
+        </div>
+      </div>
+      <div class="clap-track">
+        <div class="controls">
+          <h1>Clap</h1>
+          <button data-track="4" class="mute clap-volume">
+            <i class="fas fa-volume-mute"></i>
+          </button>
+          <select name="clap-select" id="clap-select">
+            <option value="./sounds/clap-808.wav">808 Clap</option>
+            <option value="./sounds/clap-analog.wav">Clap Analog</option>
+            <option value="./sounds/clap-crushed.wav">Clap Crush</option>
+            <option value="./sounds/clap-fat.wav">Clap Fat</option>
+            <option value="./sounds/clap-slapper.wav">Clap Slapper</option>
+            <option value="./sounds/clap-tape.wav">Clap Tape</option>
+          </select>
+        </div>
+        <div class="clap">
+          <div class="pad clap-pad b0"></div>
+          <div class="pad clap-pad b1"></div>
+          <div class="pad clap-pad b2"></div>
+          <div class="pad clap-pad b3"></div>
+          <div class="pad clap-pad b4"></div>
+          <div class="pad clap-pad b5"></div>
+          <div class="pad clap-pad b6"></div>
+          <div class="pad clap-pad b7"></div>
+        </div>
+      </div>
       <button class="play">Play</button>
+      <div class="tempo">
+        <input
+          type="range"
+          class="tempo-slider"
+          min="20"
+          max="300"
+          value="150"
+        />
+        <p>Tempo: <span class="tempo-nr">150</span></p>
+      </div>
     </div>
 
     <audio class="kick-sound" src="./sounds/kick-classic.wav"></audio>
     <audio class="snare-sound" src="./sounds/snare-acoustic01.wav"></audio>
     <audio class="hihat-sound" src="./sounds/hihat-acoustic01.wav"></audio>
+    <audio class="openhat-sound" src="./sounds/openhat-acoustic01.wav"></audio>
+    <audio class="clap-sound" src="./sounds/clap-808.wav"></audio>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
